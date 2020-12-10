@@ -1,0 +1,39 @@
+spring:
+  profiles:
+    active: dev
+  mail:
+      host: smtp.gmail.com
+      port: 587
+      username: <username>
+      password: <password>>
+      properties:
+        mail:
+          smtp:
+            auth: true
+            connectiontimeout: 5000
+            timeout: 5000
+            writetimeout: 5000
+            starttls:
+              enable: true
+mail:
+  from: survey-test@mailinatr.com
+  reply-to: survey-test@mailinator.com
+security:
+  secret: secret-for-jwt
+  expiration-time: 864000000
+---
+spring:
+  profiles: dev
+  main:
+    allow-bean-definition-overriding: true
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:h2:mem:survey;MODE=MySQL
+    driver-class-name: org.h2.Driver
+    username: survey
+    password: survey
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
